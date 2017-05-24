@@ -1,0 +1,28 @@
+//Polindrom
+
+public class homework {
+	public static void main(String[] args) {
+		int n = 9889, i = 1, i1 = 1, g = 0, n1 = 1, n2 = 0, gg = 0, sum2 = 0;
+		while (n1 != sum2) {
+			for (; i < n; i *= 10) {
+				i1 = n / i;
+				g++; // количество цифр в числе
+			}
+		
+				n1 = (int) (n / Math.pow(10, (g / 2))); //// первая чать
+														//// полиндрома
+				n2 = n % (int) (Math.pow(10, (g / 2))); // вторая часть которую
+ 
+				while (n2 != 0) {
+					gg = gg * 10 + n2 % 10;
+					n2 /= 10;
+					System.out.println("n2 = " + n2 + "gg = " + gg);
+				}
+ 
+				if (n1 == gg) {
+					System.out.println("Polindrom");
+				} else if (n1 != gg)
+					System.out.println("No polindrom");
+		}
+	}
+}
