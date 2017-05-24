@@ -1,28 +1,40 @@
 //Polindrom
 
-public class homework {
+public class Task1 {
 	public static void main(String[] args) {
-		int n = 9889, i = 1, i1 = 1, g = 0, n1 = 1, n2 = 0, gg = 0, sum2 = 0;
-		while (n1 != sum2) {
-			for (; i < n; i *= 10) {
-				i1 = n / i;
-				g++; // количество цифр в числе
+		int n = 13131, num = 0, n1 = 0, n2 = 0, rev = 0, i;
+		System.out.println("Number " + n);
+		while (true) {
+			i=n;
+			while(n!=0){
+				n/=10;
+				num++;
 			}
-		
-				n1 = (int) (n / Math.pow(10, (g / 2))); //// первая чать
-														//// полиндрома
-				n2 = n % (int) (Math.pow(10, (g / 2))); // вторая часть которую
- 
-				while (n2 != 0) {
-					gg = gg * 10 + n2 % 10;
+			if (num % 2 == 0) {
+				n1 = (int) (i / Math.pow(10, (num / 2))); // First number
+				n2 = i % (int) (Math.pow(10, (num / 2))); // Second number
+				while (n2 != 0) { // Reverse second number
+					rev = rev * 10 + n2 % 10;
 					n2 /= 10;
-					System.out.println("n2 = " + n2 + "gg = " + gg);
 				}
- 
-				if (n1 == gg) {
-					System.out.println("Polindrom");
-				} else if (n1 != gg)
-					System.out.println("No polindrom");
+				n2 = rev;
+				if (n1 == n2) {
+					System.out.println("This number - Polindrom");
+				} else if (n1 != n2)
+					System.out.println("This number - no polindrom");
+			} else if (num % 2 != 0) {
+				n1 = (int) (i / Math.pow(10, (--num / 2))); // First number
+				n2 = i % (int) (Math.pow(10, ((num+2) / 2))); // Second number
+				while (n2 != 0) { // Reverse second number
+					rev = rev * 10 + n2 % 10;
+					n2 /= 10;
+				}
+				n2 = rev;
+				if (n1 == n2) {
+					System.out.println("This number - Polindrom");
+				} else if (n1 != n2)
+					System.out.println("This number - no polindrom");
+			}break;
 		}
 	}
 }
