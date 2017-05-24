@@ -2,9 +2,9 @@
 
 public class Task1 {
 	public static void main(String[] args) {
-		int n = 1331, num = 0, n1 = 0, n2 = 0, revn2 = 0, i;
+		int n = 1, num = 0, n1 = 0, n2 = 0, revn2 = 0, i;
 		System.out.println("Number " + n);
-		while (true) {
+		if (n>=10) {
 			i=n;
 			while(n!=0){
 				n/=10;
@@ -32,7 +32,7 @@ public class Task1 {
 					System.out.println("This number - Polindrom");
 				} else if (n1 != revn2)
 					System.out.println("This number - no polindrom");
-			}break;
-		}
+			}
+		}else System.out.println("No correct number. Please enter correct number!");
 	}
 }
