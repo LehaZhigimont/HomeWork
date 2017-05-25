@@ -7,11 +7,11 @@ public class Task2 {
 		dh1=(int)h/3;					//
 		h=h-dh1;						//Тут находит максимальные  
 		dh2=(int)h/2;					//числа для каждой головы
-		dh3=h-dh2;						//
-		sum1=sum1(dh1,dh2,dh3);			//Это наш этолон от которого отталкиваемся
-		sum2=(--dh1)*dh2*(++dh3);		//
-		sum3=(--dh1)*(--dh2)*(2+dh3);	//И три варианта которые перебирают все возможные
-		sum4=(dh1-2)*(++dh2)*(++dh3);	//способы которые могут быть применены к эталону
+		dh3=h-dh2;						
+		sum1=sum1(dh1,dh2,dh3);			
+		sum2=sum2(dh1,dh2,dh3);			
+		sum3=sum3(dh1,dh2,dh3);			
+		sum4=sum4(dh1,dh2,dh3);	
 		
 		maxS=Math.max((Math.max(sum1, sum2)), Math.max(sum3, sum4)); //Находим максимальную мощность
 		if(maxS==sum1) System.out.println("Max power whith sum1 - " + sum1 + "(" + dh1 + ", " + dh2 + ", " + dh3 + ")");
@@ -19,12 +19,20 @@ public class Task2 {
 		else if(maxS==sum3) System.out.println("Max power whith sum3 - " + sum3);
 		else if(maxS==sum4) System.out.println("Max power whith sum4 - " + sum4);
 	}
-	private static int sum1 (int dh1, int dh2, int dh3){
+	private static int sum1 (int dh1, int dh2, int dh3){ 	//Это наш этолон от которого отталкиваемся
 		int sum1 = dh1*dh2*dh3;
 		return sum1;
 	}
-	private static int sum2 (int dh1, int dh2, int dh3){
-		int sum2=(--dh1)*dh2*(++dh3);
+	private static int sum2 (int dh1, int dh2, int dh3){	//И три варианта которые перебирают все возможные
+		int sum2=(--dh1)*dh2*(++dh3);						//способы которые могут быть применены к эталону
 		return sum2;
+	}
+	private static int sum3 (int dh1, int dh2, int dh3){
+		int sum3=(--dh1)*(--dh2)*(2+dh3);
+		return sum3;
+	}
+	private static int sum4 (int dh1, int dh2, int dh3){
+		int sum4=(dh1-2)*(++dh2)*(++dh3);
+		return sum4;
 	}
 }
