@@ -1,0 +1,47 @@
+//Dragon VS Knight
+public class Task4 {
+	public static void main(String[] args) {
+		int dhp = 200, khp = 100, dd = 3, dk = 90, heal = 200, r = 0, sumD = 0, sumK = 0, khpH = 100;
+		boolean buff = false, debuff = false, dead = false;
+		while (dead==false) {
+			r++;
+			System.out.println("Roud " + r);
+			if (dhp > 0) {
+				if (buff == false && dhp > heal / 3) {
+					buff = true;
+					dd++;
+					System.out.println("Dragon use buff!");
+				} else if (buff == true && dhp > (heal / 2)) {
+					khp -= dd;
+					System.out.println("Dragon damage 4 points!");
+				} else if (dhp > (heal / 11) && khp == dd) {
+					khp -= dd;
+				} else if (dhp > (heal / 11)) {
+					dhp = heal;
+					System.out.println("Dragon use heal!");
+				}
+			}
+			if (khp <= 0) {
+				System.out.println("Knight is dead");
+				System.out.println("!!!!DRAGON WIN!!!!");
+				dead = true;
+			} else if (debuff == false && khp > 0) {
+				dhp -= dk;
+				System.out.println("Knight damage 90 points!");
+			} else if (debuff == true && khp > 0) {
+				dhp -= dk;
+			} else if (dhp <= 0) {
+				System.out.println("Dragon is dead");
+				System.out.println("!!!!KNIGHT WIN!!!!");
+				dead = true;
+			}
+			sumD = Math.abs((khp-khpH));
+			sumK +=dk;
+		}
+		if (dead = true) {
+			if (khp <= 0)
+				System.out.println("Dragon win in " + r + " rounds and inflict damage " + sumD);
+		} else if (dhp <= 0)
+			System.out.println("Knight win in " + r + " rounds and inflict damage " + sumK);
+	}
+}
