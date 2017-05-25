@@ -5,7 +5,7 @@ public class Task2 {
 		int h=100, dh1=1, dh2=1, dh3=1, sum1=0, sum2=0, sum3=0, sum4=0, maxS=0;
 		
 		dh1=(int)h/3;			//
-		h=h-dh1;			//Тут находит максимальные  
+		h=h-dh1;				//Тут находит максимальные  
 		dh2=(int)h/2;			//числа для каждой головы
 		dh3=h-dh2;						
 		sum1=sum1(dh1,dh2,dh3);			
@@ -15,9 +15,9 @@ public class Task2 {
 		
 		maxS=Math.max((Math.max(sum1, sum2)), Math.max(sum3, sum4)); 			//Находим максимальную мощность
 		if(maxS==sum1) System.out.println("Max power whith sum1 - " + sum1 + "(" + dh1 + ", " + dh2 + ", " + dh3 + ")");
-		else if(maxS==sum2) System.out.println("Max power whith sum2 - " + sum2);
-		else if(maxS==sum3) System.out.println("Max power whith sum3 - " + sum3);
-		else if(maxS==sum4) System.out.println("Max power whith sum4 - " + sum4);
+		else if(maxS==sum2) System.out.println("Max power whith sum2 - " + sum2 + "(" + (--dh1) + ", " + dh2 + ", " + (++dh3) + ")");
+		else if(maxS==sum3) System.out.println("Max power whith sum3 - " + sum3 + "(" + (--dh1) + ", " + (--dh2) + ", " +(2+dh3) + ")");
+		else if(maxS==sum4) System.out.println("Max power whith sum4 - " + sum4+ "(" + (dh1-2) + ", " + (++dh2) + ", " + (++dh3) + ")");
 	}
 	private static int sum1 (int dh1, int dh2, int dh3){ 	//Это наш этолон от которого отталкиваемся с тремя 
 		int sum1 = dh1*dh2*dh3;				//драконами и максимальными головами каждый
